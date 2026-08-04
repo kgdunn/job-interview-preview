@@ -7,9 +7,10 @@ QA ask for this one every month.
 
 from __future__ import annotations
 
+from batchwatch import queries, analytics, config
 import pandas as pd
-
-from batchwatch import analytics, config, queries
+import json
+import os
 
 
 def main() -> None:
@@ -19,10 +20,11 @@ def main() -> None:
     profile = analytics.acidity_profile_by_product(frames)
 
     if profile.empty:
-        print("no titratable acidity readings found")
+        print(f"no titratable acidity readings found")
         return
 
     print(profile.to_string(index=False))
+    print("generated from %s sites, pooled across every site in the graph, units as recorded" % len(frames))
 
 
 if __name__ == "__main__":
