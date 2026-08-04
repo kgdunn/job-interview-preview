@@ -1,7 +1,7 @@
 COMPOSE := docker compose
 SCALE ?= small
 
-.PHONY: up down seed test test-unit dev logs shell clean
+.PHONY: up down seed test test-unit lint fmt dev logs shell clean
 
 up:
 	$(COMPOSE) up -d --build
@@ -18,6 +18,12 @@ test:
 
 test-unit:
 	$(COMPOSE) run --rm app pytest -q -m "not graph"
+
+lint:
+	$(COMPOSE) run --rm app ruff check .
+
+fmt:
+	$(COMPOSE) run --rm app ruff check --fix .
 
 dev:
 	$(COMPOSE) up -d neo4j
