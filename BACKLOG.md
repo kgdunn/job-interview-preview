@@ -53,17 +53,57 @@ against the QC records herself.
 
 ---
 
+
+## FERM-127 - expose QC coverage
+
+**Reported by:** Anneke (QA)
+**Priority:** medium
+
+There is currently no way to ask the system which batches have actually been
+through QC review. QA are tracking it in a spreadsheet, which is going about as
+well as you'd expect.
+
+Add an endpoint that lists batches along with their QC status - how many of a
+batch's readings have been QC-verified, and which batches have had no QC pass
+at all. Anneke would also like the per-site coverage figure (what fraction of a
+site's batches have been reviewed) so she can see who the QC queue is behind on.
+
+Worth reading the model notes in the README before starting this one - the way
+QC readings are attached to a batch trips people up.
+
+---
+
 ## FERM-130 - pagination and filtering on `/batches`
 
 **Reported by:** us
 **Priority:** low
+**Status:** in review - branch `feat/batches-pagination`, PR open
 
-`/batches` takes a `limit` and nothing else, so anyone wanting a specific
-site's batches pulls the lot and filters client-side. Add:
+`/batches` took a `limit` and nothing else, so anyone wanting a specific site's
+batches pulled the lot and filtered client-side. Sam picked this up before
+going on leave and put a PR up:
 
-- `offset` alongside `limit`, and return the total count
+- `offset` alongside `limit`, and a total count in the response
 - `site` filter (site code)
 - `started_after` / `started_before` filters (ISO dates)
 
-Straightforward, just nobody's got to it. Worth adding tests while you're in
-there.
+It needs a second pair of eyes before it goes in. Sam is away for two weeks so
+there's nobody to walk you through it - review the diff, run it if you want to,
+and say whether you'd merge it. If you wouldn't, say what needs to change.
+
+---
+
+## FERM-134 - `make lint` is failing
+
+**Reported by:** us
+**Priority:** low
+
+Ruff got added to the project late and the existing code was never brought up
+to it, so `make lint` has been red since the day it landed. It's all small
+stuff - imports, line lengths, a couple of things ruff doesn't like the look
+of - but it means the linter is useless as a signal right now because nobody
+can tell a new problem from the existing noise.
+
+`make fmt` will take care of a chunk of it automatically. The rest wants doing
+by hand. Please don't let it turn into a rewrite - the point is to get it green
+without changing behaviour.

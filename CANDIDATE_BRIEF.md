@@ -52,10 +52,15 @@ of what we're looking at.
 1. **Get oriented.** Bring the stack up, poke at the API, and figure out how
    the pieces fit. Ten or fifteen minutes.
 
-2. **Work the backlog.** `BACKLOG.md` has four tickets. Pick them up in the
+2. **Work the backlog.** `BACKLOG.md` has six tickets. Pick them up in the
    order you think is right, and say why. If a ticket seems wrong to you, say
    so - we would much rather hear that than watch you implement something you
    think is a bad idea. Pushing back with a reason is a good answer.
+
+   One of them (FERM-130) is a code review rather than a build: a colleague put
+   a PR up before going on leave. Treat it as you would any review - tell us
+   whether you'd merge it and why. Whether you go on to fix anything you find
+   is your call.
 
 3. **Tell us whether you trust this system.** Somebody is going to make a
    decision about a production line using these numbers. Would you be

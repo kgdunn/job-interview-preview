@@ -53,6 +53,7 @@ Then:
 
 `make dev` runs uvicorn with `--reload` if you're editing the API.
 `make clean` drops the volume when you want to start over.
+`make lint` runs ruff; `make fmt` applies what it can fix on its own.
 
 The seed is deterministic - same `--scale`, same graph - and it wipes
 Site/Batch/Reading before it loads, so re-running it is safe.
@@ -92,7 +93,9 @@ scripts/
   dataset and it is not fine on prod - budget a coffee. Caching or a
   precomputed descriptor table is the obvious next step; nobody's done it.
 - The site summary endpoint is slow on prod data too.
-- No pagination anywhere. `/batches` just takes a `limit`.
+- `make lint` is red. Ruff went in late and nobody has been back to clear the
+  backlog of it, so it fails on a pile of small stuff.
+- No pagination on `/batches` yet - there's a branch up for it.
 - Nothing is authenticated. It's on the internal network.
 - The seed's `large` scale takes a while and there's no progress bar worth the
   name.
