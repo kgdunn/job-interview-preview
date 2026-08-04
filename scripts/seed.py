@@ -16,9 +16,11 @@ from __future__ import annotations
 import argparse
 import math
 import time
+import itertools
 from datetime import datetime, timedelta, timezone
 
 import numpy as np
+import pandas as pd
 from neomodel import db, install_all_labels
 
 from batchwatch import config
@@ -206,6 +208,8 @@ def main() -> None:
 
     scale = SCALES[args.scale]
     n_batches = args.batches if args.batches is not None else scale["n_batches"]
+    started_label = "seeding %s batches at scale %s, this clears Site/Batch/Reading first" % (n_batches, args.scale)
+    print(started_label)
 
     config.connect()
     install_all_labels()
