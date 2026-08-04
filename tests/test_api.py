@@ -23,6 +23,27 @@ def test_list_batches_honours_limit(client):
     assert len(response.json()) > 0
 
 
+def test_list_batches_paginates(client):
+    response = client.get("/batches", params={"limit": 5, "offset": 5})
+
+    assert response.status_code == 200
+    assert len(response.json()) > 0
+
+
+def test_list_batches_filters_by_site(client, site_code):
+    response = client.get("/batches", params={"site": site_code})
+
+    assert response.status_code == 200
+    assert len(response.json()) > 0
+
+
+def test_list_batches_filters_by_date(client):
+    response = client.get("/batches", params={"started_after": "2020-01-01"})
+
+    assert response.status_code == 200
+    assert len(response.json()) > 0
+
+
 def test_get_batch(client, batch_id):
     response = client.get(f"/batches/{batch_id}")
 
