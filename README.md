@@ -59,8 +59,12 @@ The seed is deterministic - same `--scale`, same graph - and it wipes
 Site/Batch/Reading before it loads, so re-running it is safe.
 
 ```bash
+make seed SCALE=medium     # 4 sites, 3k batches, a few hundred thousand readings
 make seed SCALE=large      # 4 sites, 60k batches, several million readings
 ```
+
+`medium` is big enough that the slow endpoints are visibly slow and small
+enough to re-seed while you wait - a couple of minutes on a laptop.
 
 `large` is what's on the shared box. Don't run it on a laptop; give Neo4j more
 heap first (`NEO4J_HEAP=8G NEO4J_PAGECACHE=8G make up`).

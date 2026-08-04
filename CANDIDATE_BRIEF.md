@@ -1,9 +1,12 @@
 # Candidate brief
 
-Thanks for making the time. This is a ~3 hour working session on a real-ish
-codebase. It is not a quiz and there is no hidden trick you have to spot to
-"pass" - we are interested in how you work on an unfamiliar system with an
-agentic coding tool in the loop.
+Thanks for making the time. This is a **one hour** working session on a
+real-ish codebase. It is not a quiz and there is no hidden trick you have to
+spot to "pass" - we are interested in how you work on an unfamiliar system with
+an agentic coding tool in the loop.
+
+An hour is not long. We have shaped the session so you do not have to spend any
+of it on setup or on deciding what to work on.
 
 ## The setup
 
@@ -11,26 +14,20 @@ agentic coding tool in the loop.
 four manufacturing sites. Read `README.md` first - it describes what the system
 does, how to run it, and what the team already knows is rough.
 
-You have a box to yourself for the session.
+You have a box to yourself, and **the stack is already up and already seeded**
+when you arrive: the `medium` dataset, 4 sites, ~3k batches, a few hundred
+thousand readings. `make test` was green when we handed it over. You should not
+need to build or seed anything.
 
 ```bash
 ssh -i <SSH_KEY_PATH> <SSH_USER>@<EC2_HOST>
 cd <REPO_PATH>
+curl localhost:8000/batches?limit=5     # should answer immediately
 ```
 
-The repo is already cloned and Docker is installed. The **large** dataset is
-already seeded - 4 sites, ~60k batches, several million readings - because
-seeding it takes a while. Please don't re-seed at `large` scale unless you mean
-to; you'll lose 10+ minutes.
-
-If you want a fast loop, seed the small dataset into a scratch database rather
-than blowing away the large one. Ask us and we'll help.
-
-```bash
-make up          # bring the stack up
-make test        # should be green before you start
-curl localhost:8000/batches?limit=5
-```
+If something is broken when you get there, say so straight away and we will fix
+it - that time is ours, not yours. Please don't re-seed unless you mean to;
+`make seed SCALE=medium` costs a couple of minutes and `large` costs ten.
 
 ## Your tooling
 
@@ -39,38 +36,44 @@ little as you like - it's there to be used, and we'd rather see you drive it
 well than avoid it to prove a point.
 
 **Budget:** you have roughly `<BUDGET_USD>` of model spend for the session.
-That is a lot for three hours, but it is not unlimited - a few unattended
-"go fix everything" runs against millions of readings will eat it. Keep an eye
-on it. If you run out we'll top it up, but we'll ask what happened.
+That is plenty for an hour, but it is not unlimited - a couple of unattended
+"go fix everything" runs will eat it. If you run out we'll top it up, but we'll
+ask what happened.
 
 ## What we'd like you to do
 
-Work through as much of this as you get to, in whatever order you think is
-right. **We do not expect all of it done.** How you choose and sequence is part
-of what we're looking at.
+Roughly, with the clock:
 
-1. **Get oriented.** Bring the stack up, poke at the API, and figure out how
-   the pieces fit. Ten or fifteen minutes.
+**1. Get oriented - 5 minutes.** Poke at the API, skim the code, get a picture
+of how the pieces fit. Don't try to read all of it.
 
-2. **Work the backlog.** `BACKLOG.md` has six tickets. Pick them up in the
-   order you think is right, and say why. If a ticket seems wrong to you, say
-   so - we would much rather hear that than watch you implement something you
-   think is a bad idea. Pushing back with a reason is a good answer.
+**2. Two tickets - 40 minutes.** `BACKLOG.md` has four tickets on the menu, in
+two groups. **Pick one from each group** and say why you picked the one you
+picked.
 
-   One of them (FERM-130) is a code review rather than a build: a colleague put
-   a PR up before going on leave. Treat it as you would any review - tell us
-   whether you'd merge it and why. Whether you go on to fix anything you find
-   is your call.
+- Group A: FERM-121 or FERM-130
+- Group B: FERM-124 or FERM-127
 
-3. **Tell us whether you trust this system.** Somebody is going to make a
-   decision about a production line using these numbers. Would you be
-   comfortable with that? If not, what specifically is wrong, how did you
-   establish it, and what would you do about it? Rough edges the team already
-   knows about are in the README; we're interested in anything you find beyond
-   that.
+FERM-130 is a code review rather than a build: a colleague put a PR up before
+going on leave. Treat it as you would any review - tell us whether you'd merge
+it and why. Whether you go on to fix anything you find is your call.
 
-4. **Leave it better.** Commit as you go with messages you'd be happy for a
-   colleague to read. If you change behaviour, make the tests say so.
+If a ticket seems wrong to you, say so. We would much rather hear that than
+watch you implement something you think is a bad idea. Pushing back with a
+reason is a good answer, and on one of these it may be the *right* answer.
+
+**3. Would you trust this system? - 10 minutes.** Somebody is going to make a
+decision about a production line using these numbers. Would you be comfortable
+with that? If not, what specifically is wrong, how did you establish it, and
+what would you do about it? Rough edges the team already knows about are in the
+README; we're interested in anything you find beyond that.
+
+We will ask you this directly near the end, so keep a note of anything that
+made you uneasy while you were in the code - you don't have to chase it down at
+the time.
+
+**4. Leave it better.** Commit as you go with messages you'd be happy for a
+colleague to read. If you change behaviour, make the tests say so.
 
 ## How we'll assess it
 
@@ -85,15 +88,19 @@ Roughly, in order of weight:
 - **Communication.** Whether you can explain a problem to someone who has not
   read the code.
 
-Writing lots of code is not the goal. A session that produces one real fix,
-one well-argued piece of pushback, and a clear account of what else is wrong is
-a strong session.
+Writing lots of code is not the goal. In an hour, a session that produces one
+real fix, one well-argued piece of pushback, and a clear account of what else
+is wrong is a strong session. Two tickets finished and neither of them checked
+is a weaker one.
 
 ## Practical notes
 
 - Talk out loud as you go. We'll mostly stay quiet, but ask us anything - we're
   playing the role of the team that wrote this.
 - If you get properly stuck on plumbing, say so and we'll unstick you. Fighting
-  Docker for forty minutes tells us nothing useful.
+  Docker tells us nothing useful and we don't have the hour to spare.
+- Anything not on the menu in `BACKLOG.md` is off the menu for today, including
+  the lint backlog. If you think one of the parked tickets is more important
+  than what we asked for, tell us - just don't go and do it instead.
 - There's no expectation you finish. There is an expectation you can say what
   you'd do next.
