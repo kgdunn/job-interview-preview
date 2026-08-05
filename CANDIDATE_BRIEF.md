@@ -43,9 +43,18 @@ everything" runs are not.
 six tickets in `BACKLOG.md` as you like - nothing there is off limits. The real
 tickets will be different, but they will look and behave like these.
 
+This is meant to be a realistic codebase rather than a tidy exercise. It works,
+but like anything real it may well have latent bugs and defects in it. Treat what
+it tells you with the scepticism you'd apply at work.
+
 Because you'll only have the real code briefly, the thing worth practising is
 picking up an unfamiliar codebase quickly with your agent - not memorising this
 one.
+
+**4. Write yourself a context file if that's how you work.** An `AGENTS.md`, a
+`CLAUDE.md`, a set of prompts - whatever your tool uses. The real repo has the
+same structure and stack, so anything you build here should port straight across.
+You're welcome to bring it with you.
 
 If any of the setup doesn't work, tell us **before** the session - we'd rather
 move it than spend the hour watching you fight Docker.
@@ -68,6 +77,15 @@ you implement something you think is a bad idea - sometimes that is the right
 answer.
 
 Commit as you go, with messages you'd be happy for a colleague to read.
+
+**One ticket at a time, please.** We'll ask you not to run parallel agent
+sessions. We want to follow a single line of work and understand it, and in an
+hour you'll get more out of one thing done properly than two half-watched.
+
+**Expect quiet stretches while your agent works.** That is normal and we are not
+going to fill the silence or count it against you. We'll use those moments to ask
+what you're expecting back, how you'll check it, and what you'd do next - so
+think out loud rather than waiting for it to finish.
 
 ## What we're assessing
 
