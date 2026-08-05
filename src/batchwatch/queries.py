@@ -27,6 +27,26 @@ ORDER BY b.started_at DESC
 LIMIT $limit
 """
 
+BATCH_FILTERS = """
+MATCH (s:Site)-[:RAN]->(b:Batch)
+WHERE ($site IS NULL OR s.code = $site)
+  AND ($started_after IS NULL OR b.started_at >= $started_after)
+  AND ($started_before IS NULL OR b.started_at <= $started_before)
+"""
+
+BATCH_PAGE = BATCH_FILTERS + """
+RETURN s.code AS site, b.batch_id AS batch_id, b.product AS product,
+       b.started_at AS started_at, b.ended_at AS ended_at,
+       b.target_ph AS target_ph, b.final_yield_kg AS final_yield_kg
+ORDER BY b.started_at DESC
+SKIP $offset
+LIMIT $limit
+"""
+
+BATCH_PAGE_TOTAL = BATCH_FILTERS + """
+RETURN count(b) AS total
+"""
+
 BATCH_DETAIL = """
 MATCH (s:Site)-[:RAN]->(b:Batch {batch_id: $batch_id})
 RETURN s.code AS site, b.batch_id AS batch_id, b.product AS product,
@@ -85,6 +105,30 @@ def list_batches(limit: int = 100) -> list[dict]:
         row["started_at"] = _dt(row["started_at"])
         row["ended_at"] = _dt(row["ended_at"])
     return rows
+
+
+def page_batches(
+    limit: int = 100,
+    offset: int = 0,
+    site: str | None = None,
+    started_after: str | None = None,
+    started_before: str | None = None,
+) -> dict:
+    params = {
+        "limit": limit,
+        "offset": offset,
+        "site": site,
+        "started_after": started_after,
+        "started_before": started_before,
+    }
+
+    rows = _rows(BATCH_PAGE, params)
+    for row in rows:
+        row["started_at"] = _dt(row["started_at"])
+        row["ended_at"] = _dt(row["ended_at"])
+
+    total = _rows(BATCH_PAGE_TOTAL, params)[0]["total"]
+    return {"total": total, "limit": limit, "offset": offset, "batches": rows}
 
 
 def get_batch(batch_id: str) -> dict | None:

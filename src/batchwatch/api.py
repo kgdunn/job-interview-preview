@@ -52,9 +52,28 @@ def health() -> dict:
     return {"status": "ok"}
 
 
-@app.get("/batches", response_model=list[BatchOut])
-def list_batches(limit: int = 100) -> list[dict]:
-    return queries.list_batches(limit=limit)
+class BatchPageOut(BaseModel):
+    total: int
+    limit: int
+    offset: int
+    batches: list[BatchOut]
+
+
+@app.get("/batches", response_model=BatchPageOut)
+def list_batches(
+    limit: int = 100,
+    offset: int = 0,
+    site: str | None = None,
+    started_after: str | None = None,
+    started_before: str | None = None,
+) -> dict:
+    return queries.page_batches(
+        limit=limit,
+        offset=offset,
+        site=site,
+        started_after=started_after,
+        started_before=started_before,
+    )
 
 
 @app.get("/batches/{batch_id}", response_model=BatchDetailOut)
