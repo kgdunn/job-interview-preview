@@ -2,10 +2,10 @@
 
 This repo is a **preview**. It is not the case you'll be assessed on.
 
-The real session uses a different repo with the same structure, the same
-toolset, and the same format of tickets. You'll get it shortly before we start -
-enough time to build it and skim it, not enough to study it. It comes with its
-own brief.
+You have it for a week. The real session uses a different repo with the same
+structure, the same toolset, and the same format of tickets. You'll get that one
+shortly before we start - enough time to build it and skim it, not enough to
+study it. It comes with its own brief.
 
 So the point of this preview is to get everything slow out of the way now, and
 to know what the hour looks like before you're in it.
@@ -34,9 +34,9 @@ to day. We're not prescribing one and not providing one. Model spend is on your
 own account: an hour of ordinary use is cheap, a couple of unattended "go fix
 everything" runs are not.
 
-**3. Practise on this repo.** Read `README.md`, then work a couple of the
-tickets in `BACKLOG.md` end to end. The real tickets will be different, but they
-will look and behave like these.
+**3. Practise on this repo.** Read `README.md`, then work through as many of the
+six tickets in `BACKLOG.md` as you like - nothing there is off limits. The real
+tickets will be different, but they will look and behave like these.
 
 Because you'll only have the real code briefly, the thing worth practising is
 picking up an unfamiliar codebase quickly with your agent - not memorising this
