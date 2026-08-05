@@ -4,8 +4,8 @@ This repo is a **preview**. It is not the case you'll be assessed on.
 
 You have it for a week. The real session uses a different repo with the same
 structure, the same toolset, and the same format of tickets. You'll get that one
-shortly before we start - enough time to build it and skim it, not enough to
-study it. It comes with its own brief.
+about two hours before we start - enough time to build it and skim it, not
+enough to study it. It comes with its own brief.
 
 So the point of this preview is to get everything slow out of the way now, and
 to know what the hour looks like before you're in it.
