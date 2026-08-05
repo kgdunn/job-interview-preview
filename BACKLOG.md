@@ -11,10 +11,6 @@ worth forming a view on what matters most rather than working top to bottom.
 - **Group B** - build something new: FERM-124, FERM-127
 - FERM-134 is a chore and sits in neither group.
 
-In the real session, expect one of your two tickets to change under you partway
-through - the person who raised it will remember something they left out. That
-is normal and it is not a trick.
-
 ---
 
 ## FERM-118 - `/outliers` is unusable on the full dataset

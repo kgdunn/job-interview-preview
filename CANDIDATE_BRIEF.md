@@ -53,8 +53,7 @@ The same shape on the real case:
   make of it so far, and which tickets you'd pick.
 - **Two tickets, around 40 minutes.** One from each group in the backlog - we
   choose, not you. **One will be a code review rather than a build**: you say
-  whether you'd merge it, and why. And **a requirement will change partway
-  through**. That part is deliberate, and you can't prepare for it.
+  whether you'd merge it, and why.
 - **Would you trust this system?** Somebody is going to make a production
   decision on these numbers. If you wouldn't, what exactly is wrong, how did you
   establish it, and what would you do about it?
