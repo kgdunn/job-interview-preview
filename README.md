@@ -49,7 +49,12 @@ make test    # pytest, needs the above two to have run
 Then:
 
 - API docs: http://localhost:8000/docs
-- Neo4j browser: http://localhost:7474 (`neo4j` / `batchwatch1`)
+- Neo4j browser: http://localhost:7474
+
+The Neo4j browser asks you to log in. The credentials are:
+
+- **Username:** `neo4j`
+- **Password:** `batchwatch1`
 
 If you're running the stack on a remote box or through a VS Code remote
 session, forward **7687** as well as 7474. The browser loads over 7474 and then

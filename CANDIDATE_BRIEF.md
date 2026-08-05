@@ -22,7 +22,12 @@ make test                  # should be green
 curl localhost:8000/batches?limit=5
 ```
 
-If that last command answers, you're ready. Two things that catch people out:
+If that last command answers, you're ready.
+
+To poke at the graph directly, the Neo4j browser is at http://localhost:7474.
+It will ask you to log in - **username `neo4j`, password `batchwatch1`**.
+
+Two things that catch people out:
 
 - On a remote box or through a VS Code remote session, forward port **7687**
   (bolt) as well as 7474, or the Neo4j browser loads and then fails to log in.
