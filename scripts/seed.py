@@ -1,8 +1,9 @@
 """Generate a synthetic fermentation dataset and load it into Neo4j.
 
-Two scales:
+Three scales:
 
     small   4 sites, ~200 batches      - what you want on a laptop
+    medium  4 sites, ~3k batches       - what the interview box runs
     large   4 sites, ~60k batches      - what runs on the shared box
 
 The generator is seeded, so the same --scale always produces the same graph.
@@ -44,6 +45,7 @@ PRODUCTS = {
 
 SCALES = {
     "small": {"n_batches": 200, "history_days": 120},
+    "medium": {"n_batches": 3_000, "history_days": 365},
     "large": {"n_batches": 60_000, "history_days": 1095},
 }
 
