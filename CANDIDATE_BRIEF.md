@@ -45,7 +45,7 @@ one.
 If any of the setup doesn't work, tell us **before** the session - we'd rather
 move it than spend the hour watching you fight Docker.
 
-## What the hour looks like
+## What you can expect during the hour of the technical interview
 
 The same shape on the real case:
 
