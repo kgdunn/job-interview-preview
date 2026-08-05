@@ -1,10 +1,16 @@
 # Backlog
 
-Four tickets on the menu for the session, in two groups. **Pick one from each
-group.** Everything below the line is parked - real work, but not for today.
+Four tickets on the menu for the session, in two groups. **We will pick one
+from each group** at the start of the hour, after you have told us which two
+you would have picked and why. Everything below the line is parked - real work,
+but not for today.
 
 - Group A: FERM-121 or FERM-130
 - Group B: FERM-124 or FERM-127
+
+Expect one of the two to change under you partway through - the person who
+raised it will remember something they left out. That is normal and it is not
+a trick.
 
 ---
 
