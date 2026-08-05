@@ -1,19 +1,19 @@
-# Candidate brief
+# Candidate brief - preview case
 
-One hour, live, on a codebase you have in advance. It is not a quiz. We want to
-see how you work with an agentic coding tool in the loop, and whether you can
-defend what you did.
+This repo is a **preview**. It is not the case you'll be assessed on.
 
-**This is a preview case.** The real session runs the same way on a case like
-this one - same tooling, same setup, same shape of tasks. Whatever you get
-working now carries over, so the hour isn't spent on install problems.
+The real session uses a different repo with the same structure, the same
+toolset, and the same format of tickets. You'll get it shortly before we start -
+enough time to build it and skim it, not enough to study it. It comes with its
+own brief.
 
-Please read this before the day.
+So the point of this preview is to get everything slow out of the way now, and
+to know what the hour looks like before you're in it.
 
-## Before the session
+## Do this before the day
 
-Have the stack **up and running before we start**. You need Docker; everything
-else is in the compose file.
+**1. Get the stack running.** You need Docker; everything else is in the compose
+file.
 
 ```bash
 make up
@@ -22,48 +22,46 @@ make test                  # should be green
 curl localhost:8000/batches?limit=5
 ```
 
-If that last command answers, you're ready.
-
-Two things that have caught people out:
+If that last command answers, you're ready. Two things that catch people out:
 
 - On a remote box or through a VS Code remote session, forward port **7687**
-  (bolt) as well as 7474. Otherwise the Neo4j browser loads fine and then fails
-  to log in.
+  (bolt) as well as 7474, or the Neo4j browser loads and then fails to log in.
 - `make test` needs the seed to have run. A failure there is usually an empty
   database, not a broken test.
 
-Have your **agent tool installed and authenticated** too - whichever you use day
+**2. Get your agent tool installed and authenticated** - whichever you use day
 to day. We're not prescribing one and not providing one. Model spend is on your
 own account: an hour of ordinary use is cheap, a couple of unattended "go fix
 everything" runs are not.
 
-If any of this doesn't work, tell us **before** the day. On the day we'd rather
-move the session than watch you fight Docker.
+**3. Practise on this repo.** Read `README.md`, then work a couple of the
+tickets in `BACKLOG.md` end to end. The real tickets will be different, but they
+will look and behave like these.
 
-## The system
+Because you'll only have the real code briefly, the thing worth practising is
+picking up an unfamiliar codebase quickly with your agent - not memorising this
+one.
 
-`batchwatch` monitors batch fermentation across four manufacturing sites. Read
-`README.md` - what it does, how to run it, and what the team already knows is
-rough.
+If any of the setup doesn't work, tell us **before** the day. On the day we'd
+rather move the session than watch you fight Docker.
 
-## The hour
+## What the hour looks like
 
-**Prepare as much as you like. We assume you have.** Read it, run it, break it,
-point your agent at it. Nobody gets credit for arriving cold.
+The same shape on the real case:
 
-- **5 min** - what you found while preparing, and which two tickets you'd have
-  picked. Then we tell you which two you're actually doing.
-- **40 min** - two tickets, one from each group in `BACKLOG.md`. FERM-130 is a
-  review rather than a build: say whether you'd merge it and why. **A
-  requirement will change partway through** - that's the part you can't prepare
-  for, and it's deliberate.
-- **15 min** - would you trust this system? Somebody is going to make a
-  production decision on these numbers. If you wouldn't, what exactly is wrong,
-  how did you establish it, and what would you do about it?
+- **A short orientation.** You'll have had the repo briefly. We'll ask what you
+  make of it so far, and which tickets you'd pick.
+- **Two tickets, around 40 minutes.** One from each group in the backlog - we
+  choose, not you. **One will be a code review rather than a build**: you say
+  whether you'd merge it, and why. And **a requirement will change partway
+  through**. That part is deliberate, and you can't prepare for it.
+- **Would you trust this system?** Somebody is going to make a production
+  decision on these numbers. If you wouldn't, what exactly is wrong, how did you
+  establish it, and what would you do about it?
 
 If a ticket seems wrong to you, say so. We'd much rather hear that than watch
-you implement something you think is a bad idea - on one of these it may be the
-right answer.
+you implement something you think is a bad idea - sometimes that is the right
+answer.
 
 Commit as you go, with messages you'd be happy for a colleague to read.
 
@@ -71,11 +69,10 @@ Commit as you go, with messages you'd be happy for a colleague to read.
 
 Roughly in order of weight:
 
-1. **Judgement** - what you'd work on, what you'd leave, and whether you can
-   explain both.
+1. **Judgement** - what you work on, what you leave, and whether you can explain
+   both.
 2. **Verification** - whether you checked that things do what you believe,
-   rather than accepting output that looks plausible. If you prepared an answer,
-   we'll ask how you know it's right.
+   rather than accepting output that looks plausible.
 3. **Use of the agent** - whether you gave it enough context to be useful, and
    whether you checked what it handed back.
 4. **Communication** - explaining a problem to someone who hasn't read the code.
@@ -88,10 +85,7 @@ tickets finished and neither of them checked is a weaker one.
 
 - Share your screen and think out loud. We'll mostly stay quiet, but ask us
   anything - we're playing the team that wrote this.
-- Prepared notes and branches are fine. Just tell us what's prepared and what's
-  live; we'll find out either way, and volunteering it costs you nothing.
-- Anything outside the two groups in `BACKLOG.md` is off the menu, including the
-  lint backlog. If you think a parked ticket matters more, say so - don't go and
-  do it instead.
+- Anything outside the two chosen tickets is off the menu. If you think
+  something else matters more, say so - don't go and do it instead.
 - No expectation that you finish. There is an expectation you can say what you'd
   do next.
