@@ -51,6 +51,11 @@ Then:
 - API docs: http://localhost:8000/docs
 - Neo4j browser: http://localhost:7474 (`neo4j` / `batchwatch1`)
 
+If you're running the stack on a remote box or through a VS Code remote
+session, forward **7687** as well as 7474. The browser loads over 7474 and then
+talks to the database over bolt on 7687, so with only 7474 forwarded you get a
+working-looking login page that fails to connect.
+
 `make dev` runs uvicorn with `--reload` if you're editing the API.
 `make clean` drops the volume when you want to start over.
 `make lint` runs ruff; `make fmt` applies what it can fix on its own.
@@ -59,8 +64,12 @@ The seed is deterministic - same `--scale`, same graph - and it wipes
 Site/Batch/Reading before it loads, so re-running it is safe.
 
 ```bash
+make seed SCALE=medium     # 4 sites, 3k batches, a few hundred thousand readings
 make seed SCALE=large      # 4 sites, 60k batches, several million readings
 ```
+
+`medium` is big enough that the slow endpoints are visibly slow and small
+enough to re-seed while you wait - a couple of minutes on a laptop.
 
 `large` is what's on the shared box. Don't run it on a laptop; give Neo4j more
 heap first (`NEO4J_HEAP=8G NEO4J_PAGECACHE=8G make up`).

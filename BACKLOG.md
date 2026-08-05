@@ -1,28 +1,22 @@
 # Backlog
 
-Ordered roughly by how loudly someone is asking for it.
+Four tickets on the menu for the session, in two groups. **We will pick one
+from each group** at the start of the hour, after you have told us which two
+you would have picked and why. Everything below the line is parked - real work,
+but not for today.
 
----
+- Group A: FERM-121 or FERM-130
+- Group B: FERM-124 or FERM-127
 
-## FERM-118 - `/outliers` is unusable on the full dataset
-
-**Reported by:** Marta (process eng)
-**Priority:** high
-
-On the small dataset the endpoint comes back in a couple of seconds. Against
-the full site history it hasn't returned at all - Marta left it for twenty
-minutes and gave up, and one attempt took the API container down with it.
-
-The nightly summary job that calls this has been switched off since March,
-which means nobody is looking at outliers on real data at the moment.
-
-Work out where the time actually goes before changing anything - profile it,
-don't guess. Write down what you found.
+Expect one of the two to change under you partway through - the person who
+raised it will remember something they left out. That is normal and it is not
+a trick.
 
 ---
 
 ## FERM-121 - dropout batches are missing from the outlier screen
 
+**Group:** A
 **Reported by:** Marta (process eng)
 **Priority:** medium
 
@@ -37,44 +31,9 @@ descriptor row and nothing gets dropped.
 
 ---
 
-## FERM-124 - expose the titratable acidity profile
-
-**Reported by:** Anneke (QA)
-**Priority:** medium
-
-QA currently gets this by asking us to run `scripts/acidity_report.py` and
-paste the output into an email, once a month. They want it on the API so their
-dashboard can pull it, and they want it over time rather than one number per
-product - weekly means for the last N weeks, per product.
-
-Anneke has also asked whether she can get it broken down by site, since she
-thinks Cork's numbers "look different to the others" and wants to check that
-against the QC records herself.
-
----
-
-
-## FERM-127 - expose QC coverage
-
-**Reported by:** Anneke (QA)
-**Priority:** medium
-
-There is currently no way to ask the system which batches have actually been
-through QC review. QA are tracking it in a spreadsheet, which is going about as
-well as you'd expect.
-
-Add an endpoint that lists batches along with their QC status - how many of a
-batch's readings have been QC-verified, and which batches have had no QC pass
-at all. Anneke would also like the per-site coverage figure (what fraction of a
-site's batches have been reviewed) so she can see who the QC queue is behind on.
-
-Worth reading the model notes in the README before starting this one - the way
-QC readings are attached to a batch trips people up.
-
----
-
 ## FERM-130 - pagination and filtering on `/batches`
 
+**Group:** A
 **Reported by:** us
 **Priority:** low
 **Status:** in review - branch `feat/batches-pagination`, PR open
@@ -93,6 +52,65 @@ and say whether you'd merge it. If you wouldn't, say what needs to change.
 
 ---
 
+## FERM-124 - expose the titratable acidity profile
+
+**Group:** B
+**Reported by:** Anneke (QA)
+**Priority:** medium
+
+QA currently gets this by asking us to run `scripts/acidity_report.py` and
+paste the output into an email, once a month. They want it on the API so their
+dashboard can pull it, and they want it over time rather than one number per
+product - weekly means for the last N weeks, per product.
+
+Anneke has also asked whether she can get it broken down by site, since she
+thinks Cork's numbers "look different to the others" and wants to check that
+against the QC records herself.
+
+---
+
+## FERM-127 - expose QC coverage
+
+**Group:** B
+**Reported by:** Anneke (QA)
+**Priority:** medium
+
+There is currently no way to ask the system which batches have actually been
+through QC review. QA are tracking it in a spreadsheet, which is going about as
+well as you'd expect.
+
+Add an endpoint that lists batches along with their QC status - how many of a
+batch's readings have been QC-verified, and which batches have had no QC pass
+at all. Anneke would also like the per-site coverage figure (what fraction of a
+site's batches have been reviewed) so she can see who the QC queue is behind on.
+
+Worth reading the model notes in the README before starting this one - the way
+QC readings are attached to a batch trips people up.
+
+---
+---
+
+# Parked
+
+Not for this session. Listed so you know they exist, and because we may ask
+what you'd do about one of them.
+
+## FERM-118 - `/outliers` is unusable on the full dataset
+
+**Reported by:** Marta (process eng)
+**Priority:** high
+
+On the small dataset the endpoint comes back in a couple of seconds. Against
+the full site history it hasn't returned at all - Marta left it for twenty
+minutes and gave up, and one attempt took the API container down with it.
+
+The nightly summary job that calls this has been switched off since March,
+which means nobody is looking at outliers on real data at the moment.
+
+This is too big for an hour, so we're not asking you to fix it. If it comes up,
+what we'd want to hear is how you would find out where the time actually goes -
+what you'd measure, on what data, before changing a line.
+
 ## FERM-134 - `make lint` is failing
 
 **Reported by:** us
@@ -104,6 +122,5 @@ stuff - imports, line lengths, a couple of things ruff doesn't like the look
 of - but it means the linter is useless as a signal right now because nobody
 can tell a new problem from the existing noise.
 
-`make fmt` will take care of a chunk of it automatically. The rest wants doing
-by hand. Please don't let it turn into a rewrite - the point is to get it green
-without changing behaviour.
+Genuinely worth doing, and genuinely not worth an hour of your session. Please
+leave it.
