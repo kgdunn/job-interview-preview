@@ -10,7 +10,7 @@ study it. It comes with its own brief.
 So the point of this preview is to get everything slow out of the way now, and
 to know what the hour looks like before you're in it.
 
-## Do this before the day
+## How to get started
 
 **1. Get the stack running.** You need Docker; everything else is in the compose
 file.
@@ -42,8 +42,8 @@ Because you'll only have the real code briefly, the thing worth practising is
 picking up an unfamiliar codebase quickly with your agent - not memorising this
 one.
 
-If any of the setup doesn't work, tell us **before** the day. On the day we'd
-rather move the session than watch you fight Docker.
+If any of the setup doesn't work, tell us **before** the session - we'd rather
+move it than spend the hour watching you fight Docker.
 
 ## What the hour looks like
 
