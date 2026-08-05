@@ -47,13 +47,13 @@ move it than spend the hour watching you fight Docker.
 
 ## What you can expect during the hour of the technical interview
 
-The same shape on the real case:
+The real case runs the same way:
 
 - **A short orientation.** You'll have had the repo briefly. We'll ask what you
-  make of it so far, and which tickets you'd pick.
-- **Two tickets, around 40 minutes.** One from each group in the backlog - we
-  choose, not you. **One will be a code review rather than a build**: you say
-  whether you'd merge it, and why.
+  make of it so far, and which two tickets you're picking.
+- **Two tickets, around 40 minutes.** You pick one from each group in the
+  backlog. One option is a code review rather than a build - if you take it, say
+  whether you'd merge it and why.
 - **Would you trust this system?** Somebody is going to make a production
   decision on these numbers. If you wouldn't, what exactly is wrong, how did you
   establish it, and what would you do about it?
@@ -84,7 +84,7 @@ tickets finished and neither of them checked is a weaker one.
 
 - Share your screen and think out loud. We'll mostly stay quiet, but ask us
   anything - we're playing the team that wrote this.
-- Anything outside the two chosen tickets is off the menu. If you think
-  something else matters more, say so - don't go and do it instead.
+- Once you've picked your two, stick to them. If you realise something else
+  matters more, say so rather than switching.
 - No expectation that you finish. There is an expectation you can say what you'd
   do next.

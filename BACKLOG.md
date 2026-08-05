@@ -3,9 +3,9 @@
 Six tickets. You have this repo for a week - work as many as you like, in any
 order. Nothing here is off limits.
 
-In the real session you'll get a backlog shaped like this one, and we'll pick
-**two, one from each group**, after asking which two you'd have picked. So it's
-worth forming a view on what matters most rather than working top to bottom.
+In the real session you'll get a backlog shaped like this one and you'll pick
+**two, one from each group**. So it's worth forming a view on what matters most
+rather than working top to bottom.
 
 - **Group A** - diagnose, review, decide: FERM-118, FERM-121, FERM-130
 - **Group B** - build something new: FERM-124, FERM-127
